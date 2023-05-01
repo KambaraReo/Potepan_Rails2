@@ -1,0 +1,12 @@
+<div class="header">
+  <h2><%= link_to "Reservation.com", users_index_path, class: "text-decoration-none headerTitle" %></h2>
+  <div>
+    <% if user_signed_in? %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <%= link_to "show",  user_path(current_user) %>
+    <% else %>
+      <%= link_to "新規作成", new_user_registration_path, class: "text-decoration-none headerNewAccountButton" %>
+      <%= link_to "ログイン", new_user_session_path, class: "text-decoration-none headerLogInButton" %>
+    <% end %>
+  </div>
+</div>

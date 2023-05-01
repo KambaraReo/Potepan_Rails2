@@ -1,0 +1,24 @@
+<div class="accountFormWrapper">
+  <div class="resetPasswordFormContainer">
+    <h2>パスワードの再設定</h2>
+    <p>パスワード再設定の案内を送るため、登録済みのメールアドレスを入力してください。</p>
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <div class="field">
+        <%= f.label :email, "メールアドレス" %><br>
+        <%= f.email_field :email, placeholder: "メールアドレスを入力", autofocus: true, autocomplete: "email" %>
+        <span class="errorMessage">
+          <% if resource.errors.include?(:email) %>
+            <%= resource.errors.full_messages_for(:email).first %>
+          <% end %>
+        </span>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "送信する" %>
+      </div>
+    <% end %>
+
+    <%= render "users/shared/links" %>
+  </div>
+</div>

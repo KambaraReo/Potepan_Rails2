@@ -18,5 +18,15 @@ module AccommodationReservationApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.time_zone = 'Tokyo'
+    config.i18n.default_locale = :ja
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag } # field_with_errorsによるレイアウト崩れを防ぐ
+  end
+end
+
+module RailsDevise
+  class Application < Rails::Application
+    # 以下を追記
+    config.i18n.default_locale = :ja
   end
 end

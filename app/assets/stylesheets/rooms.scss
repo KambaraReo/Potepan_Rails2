@@ -1,0 +1,257 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+body, div, p, ul, ol, li, h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(255, 252, 251);
+  font-family: "Avenir", "Helvetica Neue", "Helvetica", "Arial", "Hiragino Sans", "ヒラギノ角ゴシック" , YuGothic, "Yu Gothic","メイリオ", Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+}
+
+// 登録施設一覧
+.roomWrapper {
+  width: 100%;
+  height: 100vh;
+  padding: 20px 40px;
+  margin: 0 auto;
+  background-color: rgb(255, 252, 251);
+  white-space: nowrap;
+  min-width: 335px;
+}
+
+.roomContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.roomContainer h3 {
+  background: linear-gradient(transparent 70%, #a7d6ff 70%);
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.roomContainer>div:first-of-type {
+  font-size: 18px;
+  color: rgb(52, 127, 239);
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 5px;
+}
+
+.roomContainer>div:first-of-type a {
+  color: rgb(74, 146, 255);
+  margin-bottom: 5px;
+}
+
+.roomContainer>div:first-of-type a:hover {
+  opacity: 0.8;
+}
+
+.roomTable {
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.roomTable thead tr:first-of-type {
+  background-color: rgb(208, 238, 255);
+}
+
+.roomTableEdit {
+  color: rgb(48, 28, 228);
+}
+
+.roomTableDelete {
+  color: rgb(255, 88, 88);
+}
+
+// 新規登録及び編集
+.roomFormContainer {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.roomFormContainer h3 {
+  text-align: center;
+  color: rgb(52, 127, 239);
+}
+
+.roomForm {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.roomForm form {
+  display: flex;
+  flex-direction: column;
+}
+
+.roomFormField {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  margin: 15px;
+}
+
+.roomFormField>div:first-child {
+  display: flex;
+  align-items: center;
+}
+
+.roomFormField label {
+  width: 140px;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 3px;
+}
+
+.roomFormField input, .roomFormField textarea {
+  width: 100%;
+}
+
+.roomFormField textarea {
+  height: 80px;
+}
+
+.roomFormField>.errorMessage {
+  position: relative;
+  left: 110px;
+}
+
+.roomFormButton {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.roomFormButton>input {
+  width: 70px;
+  background-color: rgb(46, 95, 255);
+  border: 1px solid rgb(46, 95, 255);
+  border-radius: 3px;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  padding: 5px;
+}
+
+.roomFormButton>input:hover {
+  opacity: 0.8;
+}
+
+.roomFormButton>a {
+  border-radius: 3px;
+  border: 1px solid rgb(96, 96, 96);
+  color: rgb(21, 21, 21);
+  font-size: 15px;
+  padding: 5px;
+}
+
+.roomFormButton>a:hover {
+  color: rgb(21, 21, 21);
+  opacity: 0.8;
+}
+
+// 施設詳細
+.roomDetailContainer {
+  max-width: 1000px;
+  min-width: 600px;
+  margin: 0 auto;
+}
+
+.roomDetailTop {
+  display: flex;
+  justify-content: space-between;
+}
+
+.roomDetailTop>div {
+  font-size: 17px;
+}
+
+.roomDetailTop>div>a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.roomDetailTop>div>a>span {
+  padding-top: 2px;
+}
+
+.roomDetailMain {
+  background-color: rgb(227, 243, 255);
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.roomDetailMain>h4 {
+  font-size: 32px;
+  padding: 2px;
+  margin-bottom: 0;
+}
+
+.roomDetailMain>p {
+  padding-left: 10px;
+  margin-bottom: 2px;
+  color: rgb(125, 125, 125);
+}
+
+.roomDetailMainImg {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.roomDetailMainDescription {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.roomDetailMainDescription>div:first-child {
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(255, 177, 95);
+  margin-bottom: 10px;
+}
+
+.roomDetailMainDescription>div:last-child {
+  font-size: 18px;
+  padding: 0 15px;
+  white-space: pre-wrap;
+  height: 190px;
+  overflow-y: auto;
+}
+
+@media screen and (max-width:600px) {
+  .roomDetailContainer {
+    max-width: 450px;
+    min-width: 200px;
+    margin: 0 auto;
+  }
+
+  .roomDetailMain {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .roomDetailMainImg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .roomDetailMainImg img {
+    width: 100%;
+    height: auto;
+  }
+}

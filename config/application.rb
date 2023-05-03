@@ -27,6 +27,7 @@ end
 module RailsDevise
   class Application < Rails::Application
     # 以下を追記
+    config.time_zone = 'Tokyo'
     config.i18n.default_locale = :ja
   end
 end

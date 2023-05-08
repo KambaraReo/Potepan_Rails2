@@ -40,10 +40,58 @@
         </div>
       </div>
 
-      <div>
-        <p>予約フォーム</p>
+      <div class="reservationForm">
+        <%= form_with model: @reservation, url: reservations_confirm_path do |f| %>
+          <div>
+            <div class="reservationFormField">
+              <%= f.label :checkin_at, "チェックイン" %>
+              <div>
+                <%= f.date_field :checkin_at %>
+              </div>
+              <span class="errorMessage">
+                <% if @reservation.errors.include?(:checkin_at) %>
+                  <%= @reservation.errors.full_messages_for(:checkin_at).first %>
+                <% end %>
+              </span>
+            </div>
+
+            <div class="reservationFormField">
+              <%= f.label :checkout_at, "チェックアウト" %>
+              <div>
+                <%= f.date_field :checkout_at %>
+              </div>
+              <span class="errorMessage">
+                <% if @reservation.errors.include?(:checkout_at) %>
+                  <%= @reservation.errors.full_messages_for(:checkout_at).first %>
+                <% end %>
+              </span>
+            </div>
+
+            <div class="reservationFormField reservationFormFieldPersonCount">
+              <%= f.label :number_of_guests, "人数" %>
+              <div>
+                <%= f.text_field :number_of_guests, placeholder: "0" %>
+                <span>人</span>
+              </div>
+              <span class="errorMessage">
+                <% if @reservation.errors.include?(:number_of_guests) %>
+                  <%= @reservation.errors.full_messages_for(:number_of_guests).first %>
+                <% end %>
+              </span>
+            </div>
+          </div>
+
+          <%= f.hidden_field :room_id, value: @room.id %>
+          <%= f.hidden_field :user_id, value: @user.id %>
+
+          <div class="reservationFormButton">
+            <%= f.submit "予約する" %>
+          </div>
+        <% end %>
       </div>
+
     </div>
 
   </div>
+
 </div>

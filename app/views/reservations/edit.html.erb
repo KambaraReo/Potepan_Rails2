@@ -1,0 +1,90 @@
+<div class="reservationWrapper">
+  <div class="reservationEditFormContainer">
+    <h3>再予約</h3>
+
+    <div class="reservationEditDetail">
+      <% if @reservation.room.accommodation_img.attached? %>
+        <%= image_tag @reservation.room.accommodation_img, size: "450x325" %>
+      <% else %>
+        <%= image_tag "default_room.png", size: "450x325" %>
+      <% end %>
+
+      <div class="reservationEditDetailTitle">
+        <div>
+          <p><%= @reservation.room.accommodation_name %></p>
+          <p><%= @reservation.room.accommodation_address %></p>
+        </div>
+        <div>
+          <%= number_to_currency(@reservation.room.accommodation_fee, format: "%u%n", unit: "￥")+"~" %>
+        </div>
+      </div>
+
+      <div>
+        <%= @reservation.room.accommodation_detail %></p>
+      </div>
+    </div>
+
+		<div class="reservationEditForm">
+      <%= form_with model: @reservation, url: edit_confirm_reservation_path(@reservation) do |f| %>
+        <div class="reservationEditFormField">
+          <div>
+            <%= f.label :checkin_at, "チェックイン" %>
+          </div>
+          <div>
+            <%= f.date_field :checkin_at, autofocus: true %>
+            <div class="errorMessage">
+              <% if @reservation.errors.include?(:checkin_at) %>
+                <%= @reservation.errors.full_messages_for(:checkin_at).first %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="reservationEditFormField">
+          <div>
+            <%= f.label :checkout_at, "チェックアウト" %>
+          </div>
+          <div>
+            <%= f.date_field :checkout_at %>
+            <div class="errorMessage">
+              <% if @reservation.errors.include?(:checkout_at) %>
+                <%= @reservation.errors.full_messages_for(:checkout_at).first %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="reservationEditFormField reservationEditFormFieldPersonCount">
+          <div>
+            <%= f.label :number_of_guests, "宿泊人数" %>
+          </div>
+          <div>
+            <div>
+              <%= f.text_field :number_of_guests %>
+              <span>人</span>
+            </div>
+            <div class="errorMessage">
+              <% if @reservation.errors.include?(:number_of_guests) %>
+                <%= @reservation.errors.full_messages_for(:number_of_guests).first %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <%= f.hidden_field :room_id %>
+        <%= f.hidden_field :number_of_nights %>
+        <%= f.hidden_field :payment %>
+        <%= f.hidden_field :user_id %>
+
+        <div class="reservationEditFormButton">
+          <%= f.submit "再予約"%>
+        </div>
+
+        <div class="reservationEditFormButton">
+          <%= link_to "キャンセル", reservations_path, class: "text-decoration-none" %>
+        </div>
+      <% end %>
+    </div>
+
+	</div>
+</div>

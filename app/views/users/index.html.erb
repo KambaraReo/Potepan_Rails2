@@ -3,3 +3,7 @@
 <% if user_signed_in? %>
   <%= link_to "登録済み施設一覧", rooms_path %>
 <% end %>
+
+<% if user_signed_in? %>
+  <%= link_to "予約済み施設一覧", reservations_path %>
+<% end %>

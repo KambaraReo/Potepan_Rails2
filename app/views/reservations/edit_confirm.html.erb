@@ -1,0 +1,49 @@
+<div class="reservationWrapper">
+  <div class="reservationConfirmContainer">
+    <h3>予約内容の確認</h3>
+
+		<div class="reservationConfirmAllItems">
+			<div>
+				<p>チェックイン</p>
+				<p><%= @reservation.checkin_at.strftime("%Y/%m/%d") %></p>
+			</div>
+
+			<div>
+				<p>チェックアウト</p>
+				<p><%= @reservation.checkout_at.strftime("%Y/%m/%d") %></p>
+			</div>
+
+			<div>
+				<% @reservation.number_of_nights = (@reservation.checkout_at.to_date - @reservation.checkin_at.to_date).to_i %>
+				<p>宿泊日数</p>
+				<p><%= @reservation.number_of_nights %>日</p>
+			</div>
+
+			<div>
+				<p>宿泊人数</p>
+				<p><%= @reservation.number_of_guests %>人</p>
+			</div>
+
+			<div>
+				<% @reservation.payment = (@reservation.room.accommodation_fee * (@reservation.checkout_at.to_date - @reservation.checkin_at.to_date) * @reservation.number_of_guests).to_i %>
+				<p>お支払い金額</p>
+				<p><%= number_to_currency(@reservation.payment, format: "%u%n", unit: "￥") %></p>
+			</div>
+
+			<%= form_with model: @reservation do |f| %>
+				<%= f.hidden_field :checkin_at %>
+				<%= f.hidden_field :checkout_at %>
+				<%= f.hidden_field :number_of_nights %>
+				<%= f.hidden_field :number_of_guests %>
+				<%= f.hidden_field :payment %>
+				<%= f.hidden_field :room_id %>
+				<%= f.hidden_field :user_id %>
+				<%= f.submit "予約を確定する" %>
+			<% end %>
+
+			<span>
+				<%= link_to "キャンセル", room_path(@room), class: "text-decoration-none" %>
+			</span>
+		</div>
+	</div>
+</div>

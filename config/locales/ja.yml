@@ -6,6 +6,11 @@ ja:
         email: メールアドレス
         introduction: 自己紹介
 
+      reservation:
+        checkin_at: チェックイン日
+        checkout_at: チェックアウト日
+        number_of_guests: 宿泊人数
+
       room:
         accommodation_name: 施設名
         accommodation_detail: 施設詳細
@@ -14,4 +19,4 @@ ja:
     errors:
       models:
         room:
-          blank: は必須項目です。
+          blank: は必須項目です

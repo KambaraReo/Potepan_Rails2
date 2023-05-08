@@ -231,6 +231,62 @@ body {
   overflow-y: auto;
 }
 
+.reservationForm {
+  padding: 10px;
+  background-color: rgb(255, 240, 204);
+}
+
+.reservationForm>form {
+  margin: 0 auto;
+}
+
+.reservationForm>form>div:first-of-type {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.reservationFormField {
+  width: calc((100% / 3) - 16px);
+}
+
+.reservationFormField>div {
+  width: 100%;
+}
+
+.reservationFormField input {
+  width: 100%;
+  padding: 5px;
+}
+
+.reservationFormFieldPersonCount {
+  position: relative;
+}
+
+.reservationFormFieldPersonCount>div>span {
+  position: absolute;
+  top: 32px;
+  right: 5px;
+}
+
+.reservationFormButton {
+  text-align: center;
+}
+
+.reservationFormButton input {
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(245, 164, 14);
+  border: none;
+  border-radius: 5px;
+  width: 50%;
+  height: 40px;
+}
+
+.reservationFormButton input:hover {
+  opacity: 0.8;
+}
+
 @media screen and (max-width:600px) {
   .roomDetailContainer {
     max-width: 450px;
@@ -253,5 +309,17 @@ body {
   .roomDetailMainImg img {
     width: 100%;
     height: auto;
+  }
+
+  .reservationForm {
+    margin-top: 15px;
+  }
+
+  .reservationForm>form>div:first-of-type {
+    display: block !important;
+  }
+
+  .reservationFormField {
+    width: 100% !important;
   }
 }

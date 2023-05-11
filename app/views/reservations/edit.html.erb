@@ -27,7 +27,7 @@
 		<div class="reservationEditForm">
       <%= form_with model: @reservation, url: edit_confirm_reservation_path(@reservation) do |f| %>
         <div class="reservationEditFormField">
-          <div>
+          <div class="required">
             <%= f.label :checkin_at, "チェックイン" %>
           </div>
           <div>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="reservationEditFormField">
-          <div>
+          <div class="required">
             <%= f.label :checkout_at, "チェックアウト" %>
           </div>
           <div>
@@ -55,7 +55,7 @@
         </div>
 
         <div class="reservationEditFormField reservationEditFormFieldPersonCount">
-          <div>
+          <div class="required">
             <%= f.label :number_of_guests, "宿泊人数" %>
           </div>
           <div>

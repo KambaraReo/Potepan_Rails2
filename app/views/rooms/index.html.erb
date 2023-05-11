@@ -19,7 +19,7 @@
             <th scope="col">紹介文</th>
             <th scope="col">料金</th>
             <th scope="col">作成日</th>
-            <th colspan="2"></th>
+            <th></th>
           </tr>
         </thead>
 
@@ -37,8 +37,10 @@
               <td><%= room.accommodation_detail %></td>
               <td><%= number_to_currency(room.accommodation_fee, format: "%u%n", unit: "￥")+"~" %></td>  <%# 数値を通貨フォーマットに変換 %>
               <td><%= room.created_at.strftime("%Y/%m/%d") %></td>
-              <td><%= link_to "編集", edit_room_path(room), class: "text-decoration-none roomTableEdit" %></td>
-              <td><%= link_to "削除", room_path(room), method: :delete, class: "text-decoration-none roomTableDelete", data: { confirm: "本当に削除しますか？" } %></td>
+              <td>
+                <%= link_to "編集", edit_room_path(room), class: "text-decoration-none roomTableEdit" %><br>
+                <%= link_to "削除", room_path(room), method: :delete, class: "text-decoration-none roomTableDelete", data: { confirm: "本当に削除しますか？" } %>
+              </td>
             </tr>
           <% end %>
         </tbody>

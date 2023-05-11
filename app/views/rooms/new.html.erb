@@ -5,7 +5,7 @@
     <div class="roomForm">
       <%= form_with model: @room do |f| %>
         <div class="roomFormField">
-          <div>
+          <div class="required">
             <%= f.label :accommodation_name, "施設名" %>
             <%= f.text_field :accommodation_name, autofocus: true, placeholder: "施設名を入力" %>
           </div>
@@ -17,7 +17,7 @@
         </div>
 
         <div class="roomFormField">
-          <div>
+          <div class="required">
             <%= f.label :accommodation_detail, "施設詳細" %>
             <%= f.text_area :accommodation_detail, class:"", placeholder: "施設詳細を入力" %>
           </div>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="roomFormField">
-          <div>
+          <div class="required">
             <%= f.label :accommodation_fee, "料金" %>
             <%= f.text_field :accommodation_fee, class:"", placeholder: "1日あたりの料金を入力" %>
           </div>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="roomFormField">
-          <div>
+          <div class="required">
             <%= f.label :accommodation_address, "住所" %>
             <%= f.text_field :accommodation_address, class:"", placeholder: "住所を入力" %>
           </div>

@@ -1,0 +1,38 @@
+<div class="roomSearchFormContainer">
+  <div>
+    <%= form_with url: search_rooms_path, method: :get do |f| %>
+      <%= f.text_field :accommodation_address, class: "areaForm", placeholder: "エリア名を入力" %>
+      <%= f.text_field :accommodation_name_or_detail, class: "areaForm", placeholder: "キーワードを入力" %>
+      <%= f.submit "検索", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="roomSearchWrapper">
+
+  <div class="roomSearchContainer">
+    <p>検索結果:&nbsp<%= @rooms.length %>件</p>
+
+    <ul class="roomList">
+      <% @rooms.each do |room| %>
+        <li class="room">
+          <% if room.accommodation_img.attached? %>
+            <%= image_tag room.accommodation_img %>
+          <% else %>
+            <%= image_tag "default_room.png" %>
+          <% end %>
+          <div class="roomDescriptionContainer">
+            <div>
+              <p><%= room.accommodation_name %></p>
+              <p><%= number_to_currency(room.accommodation_fee, format: "%u%n", unit: "￥")+"~" %></p>
+            </div>
+            <p><%= room.accommodation_address %></p>
+            <p><%= room.accommodation_detail %></p>
+            <%= link_to "詳細はこちら", room_path(room), class: "text-decoration-none" %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+</div>

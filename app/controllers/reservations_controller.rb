@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @user = current_user
     @reservations = @user.reservations
@@ -24,12 +26,14 @@ class ReservationsController < ApplicationController
   def edit
     @reservation = Reservation.find(params[:id])
     @room = Room.find(@reservation.room_id)
+    @user = current_user
   end
 
   def edit_confirm
     @reservation = Reservation.find(params[:id])
     @reservation.attributes = reservation_params
     @room = Room.find(@reservation.room_id)
+    @user = current_user
     render "edit" if @reservation.invalid?
   end
 

@@ -7,6 +7,8 @@
   height: 100vh;
   padding: 30px 40px;
   margin: 0 auto;
+  margin-top: 60px;
+  margin-bottom: 300px;
   background-color: rgb(255, 252, 251);
   min-width: 335px;
 }
@@ -190,6 +192,8 @@
 
 .reservationEditFormField label {
   width: 130px;
+  font-size: 15px;
+  font-weight: 600;
 }
 
 .reservationEditFormField input {
@@ -240,7 +244,7 @@
   opacity: 0.8;
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
   .reservationWrapper {
     padding: 20px 5px 5px 5px;
   }
@@ -253,6 +257,14 @@
   .reservationEditDetail img {
     width: 100%;
     height: auto;
+  }
+
+  .reservationEditDetailTitle > div:first-child > p:first-child {
+    font-size: 17px;
+  }
+
+  .reservationEditDetailTitle > div:last-child {
+    font-size: 23px;
   }
 
   .reservationEditFormField {

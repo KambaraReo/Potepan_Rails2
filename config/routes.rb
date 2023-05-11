@@ -10,10 +10,10 @@ Rails.application.routes.draw do
     sessions: "users/sessions"
   }
   resources :users, only: [:show, :edit, :update]
-  resources :rooms
+  resources :rooms do
+    get "search", on: :collection
+  end
   resources :reservations do
-    member do
-      patch 'edit_confirm' # 再予約(予約の編集)確認画面
-    end
+    patch "edit_confirm", on: :member # 再予約(予約の編集)確認画面
   end
 end

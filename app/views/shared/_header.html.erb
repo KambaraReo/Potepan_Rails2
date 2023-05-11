@@ -1,0 +1,33 @@
+<header class="header fixed-top">
+  <h2><%= link_to "Reservation.com", users_index_path, class: "text-decoration-none headerTitle" %></h2>
+  <div>
+    <% if user_signed_in? %>
+      <span class="headerIcon">
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar, class: "profileImageCircle rounded-circle", size: "40x40" %>
+        <% else %>
+          <%= image_tag "default_avatar.png", size: "40x40" %>
+        <% end %>
+      </span>
+      <div class="btn-group">
+        <button type="button" class="btn btn-light dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
+          <%= @user.name %>
+        </button>
+        <ul class="dropdown-menu">
+          <li><%= link_to "施設の新規登録", new_room_path, class: "dropdown-item" %></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><%= link_to "登録施設一覧", rooms_path, class: "dropdown-item" %></li>
+          <li><%= link_to "予約一覧", reservations_path, class: "dropdown-item" %></li>
+          <li><%= link_to "アカウント設定", user_path(current_user), class: "dropdown-item" %></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+        </ul>
+      </div>
+    <% else %>
+      <div class="headerButtons">
+        <%= link_to "新規作成", new_user_registration_path, class: "text-decoration-none headerNewAccountButton" %>
+        <%= link_to "ログイン", new_user_session_path, class: "text-decoration-none headerLogInButton" %>
+      </div>
+    <% end %>
+  </div>
+</header>

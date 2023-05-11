@@ -15,7 +15,7 @@
       <div>
         <p class="configShowItem">プロフィール画像</p>
         <% if @user.avatar.attached? %>
-          <%= image_tag @user.avatar, size: "50x50" %>
+          <%= image_tag @user.avatar, class:"profileImageCircle rounded-circle", size: "50x50" %>
         <% else %>
           <%= image_tag "default_avatar.png", size: "50x50" %>
         <% end %>

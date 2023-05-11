@@ -1,0 +1,637 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+html {
+  background-color: rgb(255, 252, 251);
+}
+
+body, div, p, ul, ol, li, h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", "verdana", sans-serif;
+}
+
+.actions:hover {
+  opacity: 0.5;
+}
+
+// ヘッダー
+.header {
+  background-color: rgb(13, 12, 12);
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-width: 335px;
+  height: 60px;
+  padding: 15px 20px;
+  white-space: nowrap;
+}
+
+.header>h2 {
+  margin-bottom: 0;
+}
+
+.headerTitle {
+  color: rgb(255, 255, 255);
+  padding: 0 5px;
+}
+
+.headerTitle:hover {
+  color: rgb(255, 255, 255);
+  opacity: none;
+}
+
+.headerNewAccountButton {
+  font-size: small;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  padding: 6px;
+  margin-right: 5px;
+}
+
+.headerNewAccountButton:hover {
+  color: rgb(0, 0, 0);
+  opacity: 0.9;
+}
+
+.headerLogInButton {
+  font-size: small;
+  color: rgb(255, 255, 255);
+  background-color: rgb(56, 52, 181);
+  border-radius: 5px;
+  border: none;
+  padding: 6px;
+}
+
+.headerLogInButton:hover {
+  color: rgb(255, 255, 255);
+  opacity: 0.9;
+}
+
+.profileImageCircle {
+  border: 0.5px solid rgb(153, 153, 153);
+  padding: 3px;
+  object-fit: cover;
+}
+
+.btn-group {
+  margin-left: 5px;
+}
+
+.dropdown-menu {
+  font-size: 14px !important;
+  min-width: 145px !important;
+}
+
+@media screen and (max-width: 360px) {
+  .headerButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .headerNewAccountButton {
+    font-size: 12px;
+    padding: 2px;
+    margin-left: 4px;
+    margin-right: 2px;
+  }
+
+  .headerLogInButton {
+    font-size: 12px;
+    padding: 2px;
+    margin-left: 4px;
+    margin-right: 2px;
+  }
+
+  .headerIcon img {
+    width: 30px;
+    height: 30px;
+  }
+
+}
+
+// フッター
+.footer {
+  background-color: rgb(13, 12, 12);
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 998;
+}
+
+.footerContainer {
+  margin: 0 auto;
+}
+
+.footerContainer>div>p {
+  color: rgb(255, 255, 255);
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.footerContainer>div>p:first-child {
+  font-size: 35px;
+}
+
+.footerContainer>div>p:last-child {
+  font-size: 15px;
+}
+
+// バリデーションエラー
+.alert {
+  color: rgb(246, 27, 27) !important;
+  margin: 0 !important;
+  padding: 2px !important;
+  text-align: center;
+  z-index: 999;
+}
+
+// ログイン及びログアウト通知
+.notice {
+  width: fit-content;
+  background-color: rgb(146, 140, 197);
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 6px 10px;
+  margin: auto;
+  margin-top: 60px;
+  position: fixed;
+  bottom: 315px;
+  right: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.notice:empty {
+  display: none;
+}
+
+// indexページ（トップページ）
+.topWrapper {
+  background-color: rgb(255, 252, 251);
+  margin-top: 60px;
+  margin-bottom: 300px;
+}
+
+.topTitle {
+  width: 100%;
+  height: 800px;
+  background-image: url("top_image.JPG");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.topTitle h2 {
+  font-size: 45px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.topRecommendationTitle {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+.topRecommendationTitle h3 {
+  margin-bottom: 0;
+}
+
+.searchFormContainer {
+  background-color: rgba(255, 255, 255, 0.361);
+  padding: 20px;
+  margin: 10px;
+}
+
+.searchFormContainer input {
+  width: 100%;
+}
+
+.areaForm {
+  padding: 6px 3px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 350px) {
+  .topTitle {
+    min-width: 335px;
+    height: 400px;
+  }
+
+  .topTitle h2 {
+    font-size: 25px;
+    padding: 0 10px;
+  }
+
+  .searchFormContainer {
+    width: 85%;
+    margin: 0 auto;
+  }
+}
+
+.topRecommendationAreas {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0 40px;
+  margin-bottom: 350px;
+}
+
+.area_image {
+  max-width: 325px;
+  height: 225px;
+  border-radius: 15px;
+}
+
+.topRecommendationArea {
+  position: relative;
+}
+
+.topRecommendationArea a {
+  display: inline-block;
+  width: calc(25% - 20px);
+  max-width: 325px;
+  border-radius: 15px;
+}
+
+.topRecommendationArea span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  font-size: 20px;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+}
+
+@media screen and (max-width: 1450px) {
+  .topRecommendationArea {
+    width: calc(50% - 20px);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .topRecommendationAreas a {
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+  }
+
+  .area_image {
+    width: 100%;
+    max-width: none;
+    height: 300px;
+    text-align: center;
+  }
+
+  .topRecommendationArea span {
+    top: 5px;
+    left: 15px;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  .topRecommendationAreas a {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .area_image {
+    width: 100%;
+    max-width: none;
+    height: 150px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .topRecommendationArea {
+    width: calc(100% - 20px);
+  }
+
+  .topRecommendationAreas a {
+    max-width: 350px;
+  }
+
+  .area_image {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .topRecommendationAreas a {
+    max-width: 250px;
+  }
+
+  .area_image {
+    height: 200px;
+  }
+}
+
+// アカウント新規作成，ログイン，パスワード再設定関連
+.accountFormWrapper {
+  background-color: rgb(255, 252, 251);
+  padding: 70px 0;
+  width: 100%;
+  min-width: 335px;
+  height: 100vh;
+  margin-top: 60px;
+}
+
+.accountCreateFormContainer, .logInFormContainer, .resetPasswordFormContainer {
+  background-color: rgb(255, 234, 212);
+  max-width: 450px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 360px) {
+  .accountCreateFormContainer, .logInFormContainer, .resetPasswordFormContainer {
+    font-size: 12px;
+    padding: 2px;
+    margin-left: 4px;
+    margin-right: 2px;
+  }
+}
+
+.accountCreateFormContainer h3 , .logInFormContainer h3 {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 5px;
+  margin-top: 35px;
+  margin-bottom: 15px;
+  color: rgb(61, 61, 63);
+}
+
+.field {
+  margin-bottom: 15px;
+  padding: 0 15px;
+  font-size: 14px;
+}
+
+.field input {
+  width: 100%;
+  padding: 4px;
+}
+
+.lastField {
+  margin-bottom: 30px;
+}
+
+.required>label:first-of-type::after {
+  content: "*";
+  color: rgb(246, 27, 27);
+  font-size: 14px;
+  margin-left: 2px;
+  vertical-align: top;
+}
+
+.errorMessage {
+  color: rgb(246, 27, 27);
+  font-size: small;
+  white-space: normal;
+}
+
+.actions {
+  text-align: center;
+  padding: 0 15px;
+}
+
+.actions input{
+  width: 100%;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  border: none;
+  background-color: rgb(69, 97, 236);
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.accountCreateFormContainer a, .logInFormContainer a {
+  color: rgb(151, 150, 150);
+  text-align: center;
+  text-decoration: none;
+  background-color: rgb(255, 255, 255);
+  border: 0.5px solid rgb(151, 150, 150);
+  border-radius: 6px;
+  font-weight: bold;
+  padding: 8px;
+  margin: 0 15px;
+}
+
+.accountCreateFormContainer a:hover, .logInFormContainer a:hover {
+  color: rgb(151, 150, 150);
+  opacity: 0.5;
+}
+
+.resetPassword {
+  text-align: center;
+  font-size: smaller;
+  margin-bottom: 10px;
+}
+
+.resetPassword a {
+  color: rgb(44, 114, 227);
+  font-weight: normal;
+  border: none;
+  background-color: rgb(255, 234, 212);
+}
+
+.resetPassword a:hover {
+  color: rgb(44, 114, 227);
+}
+
+.resetPasswordFormContainer {
+  width: 650px;
+  background-color: rgb(255, 252, 251);
+  display: block;
+}
+
+@media screen and (max-width: 530px) {
+  .resetPasswordFormContainer {
+    width: 90%;
+  }
+}
+
+.resetPasswordFormContainer .field {
+  width: 70%;
+}
+
+.resetPasswordFormContainer .actions {
+  width: 30%;
+}
+
+// アカウント表示及びプロフィール表示関連
+.configWrapper {
+  background-color: rgb(255, 252, 251);;
+  padding: 70px 0;
+  width: 100%;
+  height: 100vh;
+  min-width: 335px;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 420px) {
+  .configWrapper {
+    padding-top: 35px;
+  }
+}
+
+.configContainer {
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 350px) {
+  .configContainer {
+    transform: scale(0.95, 1);
+    min-width: 300px;
+  }
+}
+
+.configContainer>div:first-child {
+  display: flex;
+  align-items: baseline;
+  border-bottom:1px solid black ;
+  margin-bottom: 30px;
+}
+
+.configContainer h3 {
+  margin-right: 40px;
+}
+
+.configContainer a {
+  display: block;
+  text-decoration: none;
+  color: rgb(59, 59, 59);
+}
+
+.accountLink {
+  margin-right: 15px;
+}
+
+.configContainer>div:nth-of-type(2) {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.configContainer h4::first-letter {
+  font-size: 1.5em;
+  color: #7172ac;
+}
+
+.configContainer>div:nth-of-type(2)>a {
+  width: 40px;
+  text-align: center;
+  background-color: #7172ac;
+  border-radius: 4px;
+  color: white;
+  font-size: small;
+  padding: 6px;
+}
+
+.configContainer>div:nth-of-type(2) a:hover {
+  opacity: 0.8;
+}
+
+.configContainer p {
+  margin: 10px 0 0 0;
+  padding: 8px;
+}
+
+.configShow {
+  display: flex;
+  flex-direction: column;
+}
+
+.configShow div {
+  display: flex;
+  gap: 40px;
+  margin-left: 30px;
+}
+
+.configShowItem {
+  font-weight: bold;
+  width: 150px;
+}
+
+// アカウント編集及びプロフィール編集関連
+.configAccountEdit, .configProfileEdit {
+  padding: 20px;
+}
+
+.configAccountEdit form, .configProfileEdit form {
+  width: 100%;
+}
+
+.configAccountEdit span, .configProfileEdit span {
+  font-size: smaller;
+  margin-left: 0.5em;
+}
+
+.configAccountEditButton, .configProfileEditButton {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.configAccountEditButton a, .configProfileEditButton a {
+  color: rgb(235, 235, 235);
+  background-color: rgb(168, 168, 168);
+  border: 0.5px solid rgb(23, 23, 23);
+  border-radius: 6px;
+  padding: 5px;
+}
+
+.configAccountEditButton a:hover, .configProfileEditButton a:hover {
+  color: rgb(235, 235, 235);
+  opacity: 0.8;
+}
+
+.configAccountEditButton input, .configProfileEditButton input {
+  width: 70px;
+  margin-bottom: 0;
+  padding: 6px;
+  font-weight: normal;
+}
+
+.configProfileEdit textarea {
+  width: 100%;
+}
+
+.profileImage {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profileImage img {
+  padding: 5px;
+  margin-left: 10px;
+}

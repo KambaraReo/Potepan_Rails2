@@ -1,0 +1,48 @@
+<div class="reservationWrapper">
+  <div class="reservationContainer">
+    <h3>予約済み施設一覧</h3>
+
+    <div class="reservationTable">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">画像</th>
+            <th scope="col">施設名</th>
+            <th scope="col">紹介文</th>
+            <th scope="col">合計料金</th>
+            <th scope="col">チェックイン</th>
+            <th scope="col">チェックアウト</th>
+            <th scope="col">予約確定日時</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @reservations.each do |reservation| %>
+            <tr>
+              <td>
+                <% if reservation.room.accommodation_img.attached? %>
+                  <%= image_tag reservation.room.accommodation_img, size: "80x60" %>
+                <% else %>
+                  <%= image_tag "default_room.png", size: "80x60" %>
+                <% end %>
+              </td>
+              <td><%= link_to "#{reservation.room.accommodation_name}", room_path(reservation.room_id), class: "text-decoration-none" %></td>
+              <td><%= reservation.room.accommodation_detail %></td>
+              <td><%= number_to_currency(reservation.payment, format: "%u%n", unit: "￥") %></td>
+              <td><%= reservation.checkin_at.strftime("%Y/%m/%d") %></td>
+              <td><%= reservation.checkout_at.strftime("%Y/%m/%d") %></td>
+              <td><%= reservation.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+              <td>
+                <%= link_to "再予約", edit_reservation_path(reservation), class: "text-decoration-none reservationTableEdit" %><br>
+                <%= link_to "削除", reservation_path(reservation), method: :delete, class: "text-decoration-none reservationTableDelete", data: { confirm: "本当に削除しますか？" } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+
+      </table>
+    </div>
+
+  </div>
+</div>

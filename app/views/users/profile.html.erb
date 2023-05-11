@@ -1,0 +1,32 @@
+<div class="configWrapper">
+  <div class="configContainer">
+    <div>
+      <h3>設定</h3>
+      <%= link_to "アカウント", user_path(@user), {class: "accountLink", style: "color: rgb(59, 59, 59);"} %>
+      <%= link_to "プロフィール", users_profile_path(@user), {class: "profileLink", style: "color: rgb(216, 147, 18);"} %>
+    </div>
+
+    <div>
+      <h4>プロフィール情報</h4>
+      <%= link_to "編集", edit_user_path(@user)%>
+    </div>
+
+    <div class="configShow">
+      <div>
+        <p class="configShowItem">プロフィール画像</p>
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar, class:"profileImageCircle rounded-circle", size: "50x50" %>
+        <% else %>
+          <%= image_tag "default_avatar.png", size: "50x50" %>
+        <% end %>
+      </div>
+      <div>
+        <p class="configShowItem">ユーザー名</p>
+        <p><%= @user.name %></p>
+      </div>
+      <div>
+        <p class="configShowItem">自己紹介</p>
+        <p style="white-space: pre-wrap;"><%= @user.introduction %></p>
+      </div>
+  </div>
+</div>

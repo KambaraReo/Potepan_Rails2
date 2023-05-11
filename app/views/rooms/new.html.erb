@@ -1,0 +1,71 @@
+<div class="roomWrapper">
+  <div class="roomFormContainer">
+    <h3>新規施設登録</h3>
+
+    <div class="roomForm">
+      <%= form_with model: @room do |f| %>
+        <div class="roomFormField">
+          <div class="required">
+            <%= f.label :accommodation_name, "施設名" %>
+            <%= f.text_field :accommodation_name, autofocus: true, placeholder: "施設名を入力" %>
+          </div>
+          <span class="errorMessage">
+            <% if @room.errors.include?(:accommodation_name) %>
+              <%= @room.errors.full_messages_for(:accommodation_name).first %>
+            <% end %>
+          </span>
+        </div>
+
+        <div class="roomFormField">
+          <div class="required">
+            <%= f.label :accommodation_detail, "施設詳細" %>
+            <%= f.text_area :accommodation_detail, class:"", placeholder: "施設詳細を入力" %>
+          </div>
+          <span class="errorMessage">
+            <% if @room.errors.include?(:accommodation_detail) %>
+              <%= @room.errors.full_messages_for(:accommodation_detail).first %>
+            <% end %>
+          </span>
+        </div>
+
+        <div class="roomFormField">
+          <div class="required">
+            <%= f.label :accommodation_fee, "料金" %>
+            <%= f.text_field :accommodation_fee, class:"", placeholder: "1日あたりの料金を入力" %>
+          </div>
+            <span class="errorMessage">
+              <% if @room.errors.include?(:accommodation_fee) %>
+                <%= @room.errors.full_messages_for(:accommodation_fee).first %>
+              <% end %>
+            </span>
+        </div>
+
+        <div class="roomFormField">
+          <div class="required">
+            <%= f.label :accommodation_address, "住所" %>
+            <%= f.text_field :accommodation_address, class:"", placeholder: "住所を入力" %>
+          </div>
+          <span class="errorMessage">
+            <% if @room.errors.include?(:accommodation_address) %>
+              <%= @room.errors.full_messages_for(:accommodation_address).first %>
+            <% end %>
+          </span>
+        </div>
+
+        <div class="roomFormField">
+          <div>
+            <%= f.label :accommodation_img, "施設画像" %>
+            <%= f.file_field :accommodation_img %>
+          </div>
+
+        <%= f.hidden_field :user_id, value: @user.id %>
+
+        <div class="roomFormButton">
+          <%= link_to "キャンセル", rooms_path, class: "text-decoration-none" %>
+          <%= f.submit "保存" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

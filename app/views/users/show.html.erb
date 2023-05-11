@@ -1,0 +1,24 @@
+<div class="configWrapper">
+  <div class="configContainer">
+    <div>
+      <h3>設定</h3>
+      <%= link_to "アカウント", user_path(@user), {class: "accountLink", style: "color: rgb(216, 147, 18);"} %>
+      <%= link_to "プロフィール", users_profile_path(@user), {class: "profileLink", style: "color: rgb(59, 59, 59)"} %>
+    </div>
+
+    <div>
+      <h4>アカウント情報</h4>
+      <%= link_to "編集", edit_user_registration_path(@user)%>
+    </div>
+
+    <div class="configShow">
+      <div>
+        <p class="configShowItem">メールアドレス</p>
+        <p><%= @user.email %></p>
+      </div>
+      <div>
+        <p class="configShowItem">パスワード</p>
+        <p>*********</p>
+      </div>
+  </div>
+</div>

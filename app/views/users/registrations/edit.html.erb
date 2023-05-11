@@ -1,0 +1,68 @@
+<div class="configWrapper">
+  <div class="configContainer">
+    <div>
+      <h3>設定</h3>
+      <%= link_to "アカウント", user_path(@user), {class: "accountLink", style: "color: rgb(216, 147, 18);"} %>
+      <%= link_to "プロフィール", users_profile_path(@user), {class: "profileLink", style: "color: rgb(59, 59, 59)"} %>
+    </div>
+
+    <h4>アカウント情報</h4>
+    <div class="configAccountEdit">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <div class="field">
+          <%= f.label :email, "メールアドレス" %><br>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <span class="errorMessage">
+            <% if resource.errors.include?(:email) %>
+              <%= resource.errors.full_messages_for(:email).first %>
+            <% end %>
+          </span>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, "変更後のパスワード" %>
+          <span>※変更する場合のみ</span><br>
+          <%= f.password_field :password, autocomplete: "new-password" %>
+          <span class="errorMessage">
+            <% if resource.errors.include?(:password) %>
+              <%= resource.errors.full_messages_for(:password).first %>
+            <% end %>
+          </span>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation, "変更後のパスワード(確認用)" %>
+          <span>※変更する場合のみ</span><br>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <span class="errorMessage">
+            <% if resource.errors.include?(:password_confirmation) %>
+              <%= resource.errors.full_messages_for(:password_confirmation).first %>
+            <% end %>
+          </span>
+        </div>
+
+        <div class="field">
+          <%= f.label :current_password, "現在のパスワード" %><br>
+          <%= f.password_field :current_password, autocomplete: "current-password" %>
+          <span class="errorMessage">
+            <% if resource.errors.include?(:current_password) %>
+              <%= resource.errors.full_messages_for(:current_password).first %>
+            <% end %>
+          </span>
+        </div>
+
+        <div class="configAccountEditButton">
+          <div>
+            <%= link_to "キャンセル", user_path(@user) %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "保存" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+
+</div>
